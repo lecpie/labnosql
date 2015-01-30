@@ -21,7 +21,7 @@ public class JoinReducer extends Reducer<TextPair, Text, Text, Text> {
 	  System.out.println("This is a group with key : {" + key.getFirst().toString() + "," + key.getSecond().toString() + "}");
 	  
 	  boolean first  = false;
-	  voolean second = false;
+	  boolean second = false;
 	  ArrayList<Text> goodValues = new ArrayList<Text>();
 	  
 	  for (Text val : values) {
