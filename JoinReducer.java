@@ -3,6 +3,7 @@
 package org.myorg;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Iterator;
 
 import org.apache.hadoop.io.Text;
@@ -21,7 +22,7 @@ public class JoinReducer extends Reducer<TextPair, Text, Text, Text> {
 	  
 	  boolean first  = false;
 	  voolean second = false;
-	  List<Text> goodValues = new ArrayList<Text>();
+	  ArrayList<Text> goodValues = new ArrayList<>();
 	  
 	  for (Text val : values) {
 		 /* 
