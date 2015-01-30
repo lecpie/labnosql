@@ -18,7 +18,11 @@ public class JoinReducer extends Reducer<TextPair, Text, Text, Text> {
       /* here comes the reducer code */
 
 	  System.out.println("This is a group with key : {" + key.getFirst().toString() + "," + key.getSecond().toString() + "}");
-
+	  
+	  boolean first  = false;
+	  voolean second = false;
+	  List<Text> goodValues = new ArrayList<>()
+	  
 	  for (Text val : values) {
 		 /* 
 		  if (key.getFirst().equals(val)) continue;
@@ -26,10 +30,28 @@ public class JoinReducer extends Reducer<TextPair, Text, Text, Text> {
 		  context.write(key.getFirst(), val);
 		  */
 		  
-		  System.out.println("value : " + val.toString());
+		  if (key.getFirst().equals(val)) {
+			  first = true;
+		  }
+		  else {
+			  second = true;
+			  goodValues.add(val);
+		  }
 		  
+		  System.out.println("value : " + val.toString());
 	  }
 	  
+	  if (first && second) {
+		  System.out.println("Match !");
+		  
+		  for (Text val : goodValues) {
+			  
+			  System.out.println("Writing : " + "{" + key.getFirst().toString() + "," + key.getSecond().toString() + "} : ")
+			  + val.toString();
+			  context.write(key.getFirst(), val);
+			  
+		  }
+	  }
   }
 }
 // ^^ JoinReducer

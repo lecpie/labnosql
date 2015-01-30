@@ -29,7 +29,7 @@ public class JoinMapper1
      String attr = tokens[1];
      String val = tokens[2];
      
-     System.out.println("mapper 2 for : " + line.toString());
+     System.out.println("mapper 1 for : " + line.toString());
      
      if ("species".equals(attr) && val.contains("P_KK")) {
     	 int end = id.lastIndexOf('.');
