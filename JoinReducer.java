@@ -22,7 +22,7 @@ public class JoinReducer extends Reducer<TextPair, Text, Text, Text> {
 	  
 	  boolean first  = false;
 	  boolean second = false;
-	  ArrayList<Text> goodValues = new ArrayList<Text>();
+	  ArrayList<String> goodValues = new ArrayList<String>();
 	  
 	  for (Text val : values) {
 		 /* 
@@ -36,7 +36,7 @@ public class JoinReducer extends Reducer<TextPair, Text, Text, Text> {
 		  }
 		  else {
 			  second = true;
-			  goodValues.add(val);
+			  goodValues.add(val.toString());
 		  }
 		  
 		  System.out.println("value : " + val.toString());
@@ -45,11 +45,11 @@ public class JoinReducer extends Reducer<TextPair, Text, Text, Text> {
 	  if (first && second) {
 		  System.out.println("Match !");
 		  
-		  for (Text val : goodValues) {
+		  for (String val : goodValues) {
 			  
 			  System.out.println("Writing : " + "{" + key.getFirst().toString() + "," + key.getSecond().toString() + "} : "
-			  + val.toString());
-			  context.write(key.getFirst(), val);
+			  + val);
+			  context.write(key.getFirst(), new Text(val));
 			  
 		  }
 	  }
