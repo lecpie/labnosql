@@ -17,10 +17,17 @@ public class JoinReducer extends Reducer<TextPair, Text, Text, Text> {
 
       /* here comes the reducer code */
 
+	  System.out.println("This is a group with key : {" + key.getFirst().toString() + "," + key.getSecond().toString() + "}");
+
 	  for (Text val : values) {
+		 /* 
 		  if (key.getFirst().equals(val)) continue;
 		  
-		  context.write(key.getFirst(), val);	  
+		  context.write(key.getFirst(), val);
+		  */
+		  
+		  System.out.println("value : " + val.toString());
+		  
 	  }
 	  
   }

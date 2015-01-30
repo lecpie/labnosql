@@ -1,4 +1,6 @@
 org/
 *.jar
 output/
+.classpath
+.project
 
