@@ -21,7 +21,7 @@ public class JoinReducer extends Reducer<TextPair, Text, Text, Text> {
 	  
 	  boolean first  = false;
 	  voolean second = false;
-	  List<Text> goodValues = new ArrayList<>();
+	  List<Text> goodValues = new ArrayList<Text>();
 	  
 	  for (Text val : values) {
 		 /* 
