@@ -27,10 +27,7 @@ public class JoinMapper2
 	  String id = tokens[0];
 	  String attr = tokens[1];
 	  String val = tokens[2];
-	  
-	  System.out.println("mapper 2 for : " + line.toString());
-
-     
+	       
      if ("species".equals(attr))
      {
     	 Text text = new Text(val);
@@ -43,10 +40,7 @@ public class JoinMapper2
     	 Text prefixTxt = new Text(prefix);
     	 
     	 TextPair pair = new TextPair(prefixTxt, new Text("2"));
-    	 
-    	 System.out.println("Writing key : " + "{" + pair.getFirst().toString() + "," + pair.getSecond().toString() + "}");
-    	 System.out.println("with value : " + text.toString());
-    	 
+    	     	 
     	 context.write(pair, text);
      }
   }

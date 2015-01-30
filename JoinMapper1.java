@@ -27,9 +27,7 @@ public class JoinMapper1
      String[] tokens = line.split(" ");
      String id = tokens[0];
      String attr = tokens[1];
-     String val = tokens[2];
-     
-     System.out.println("mapper 1 for : " + line.toString());
+     String val = tokens[2];     
      
      if ("species".equals(attr) && val.contains("P_KK")) {
     	 int end = id.lastIndexOf('.');
@@ -40,8 +38,6 @@ public class JoinMapper1
     	 Text word = new Text(prefix);
     	 TextPair pair = new TextPair(word, new Text("1"));
     	 
-    	 System.out.println("Writing key : " + "{" + pair.getFirst().toString() + "," + pair.getSecond().toString() + "}");
-    	 System.out.println("with value : " + word.toString());
     	 context.write(pair, word);
      }
 	  	  
