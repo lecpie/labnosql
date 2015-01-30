@@ -22,7 +22,7 @@ public class JoinReducer extends Reducer<TextPair, Text, Text, Text> {
 	  
 	  boolean first  = false;
 	  voolean second = false;
-	  ArrayList<Text> goodValues = new ArrayList<>();
+	  ArrayList<Text> goodValues = new ArrayList<Text>();
 	  
 	  for (Text val : values) {
 		 /* 
