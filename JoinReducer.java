@@ -21,7 +21,7 @@ public class JoinReducer extends Reducer<TextPair, Text, Text, Text> {
 	  
 	  boolean first  = false;
 	  voolean second = false;
-	  List<Text> goodValues = new ArrayList<>()
+	  List<Text> goodValues = new ArrayList<>();
 	  
 	  for (Text val : values) {
 		 /* 
@@ -46,8 +46,8 @@ public class JoinReducer extends Reducer<TextPair, Text, Text, Text> {
 		  
 		  for (Text val : goodValues) {
 			  
-			  System.out.println("Writing : " + "{" + key.getFirst().toString() + "," + key.getSecond().toString() + "} : ")
-			  + val.toString();
+			  System.out.println("Writing : " + "{" + key.getFirst().toString() + "," + key.getSecond().toString() + "} : "
+			  + val.toString());
 			  context.write(key.getFirst(), val);
 			  
 		  }
