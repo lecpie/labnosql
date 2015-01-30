@@ -17,7 +17,7 @@ public class JoinMapper1
 
 /* here define the variables */
 
-	private Text word = new Text();
+	private ;
         
 	  @Override
 	  protected void map(LongWritable key, Text value, Context context)
@@ -31,15 +31,19 @@ public class JoinMapper1
      String attr = tokens[1];
      String val = tokens[2];
      
+     System.out.println("mapper 2 for : " + line.toString());
+     
      if ("species".equals(attr) && val.contains("P_KK")) {
     	 int end = id.lastIndexOf('.');
     	 end = id.lastIndexOf('.', end - 1);
     	 
     	 String prefix = id.substring(0, end);
-    	 	    	 
-    	 word.set(prefix);
+    	 
+    	 Text word = new Text(prefix)
     	 TextPair pair = new TextPair(word, new Text("1"));
-
+    	 
+    	 System.out.println("Writing key : " + "{" + pair.getFirst().toString() + "," + pair.getSecond().toString() + "}");
+    	 System.out.println("with value : " + word.toString());
     	 context.write(pair, word);
      }
 	  	  
