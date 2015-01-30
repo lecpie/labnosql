@@ -16,8 +16,6 @@ public class JoinMapper1
     extends Mapper<LongWritable, Text, TextPair, Text> {
 
 /* here define the variables */
-
-	private ;
         
 	  @Override
 	  protected void map(LongWritable key, Text value, Context context)
@@ -39,7 +37,7 @@ public class JoinMapper1
     	 
     	 String prefix = id.substring(0, end);
     	 
-    	 Text word = new Text(prefix)
+    	 Text word = new Text(prefix);
     	 TextPair pair = new TextPair(word, new Text("1"));
     	 
     	 System.out.println("Writing key : " + "{" + pair.getFirst().toString() + "," + pair.getSecond().toString() + "}");
